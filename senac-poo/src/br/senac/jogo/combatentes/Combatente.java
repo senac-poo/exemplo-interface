@@ -1,21 +1,21 @@
-package br.senac.jogo.inimigos;
+package br.senac.jogo.combatentes;
 
 import java.util.Random;
 
-public class Inimigo {
+public abstract class Combatente {
 	protected Random rand = new Random();
 	protected int vida;
 	protected int forca;
 	protected String nome;
 	
-	public Inimigo() {
+	public Combatente() {
 		this.vida = 50 + rand.nextInt(50);
 		this.forca = 5 + rand.nextInt(5);
-		this.nome = "Inimigo";
+		this.nome = "Combatente";
 	}
 	
 	// construtor estatico
-	public Inimigo(String nome, int forcaMinima, int vidaMinima) {
+	public Combatente(String nome, int forcaMinima, int vidaMinima) {
 		this.nome = nome;
 		this.forca = forcaMinima + rand.nextInt(50);
 		this.vida = vidaMinima + rand.nextInt(5);
@@ -28,14 +28,6 @@ public class Inimigo {
 			System.out.println(this.nome + " recebeu ataque de " + String.valueOf(forca));
 			vida -= forca;
 		}
-	}
-	
-	public void recebeAtaque(int forca, String tipo) {
-		recebeAtaque(forca);
-	}
-	
-	public int ataca() {
-		return (int) (forca * rand.nextFloat());
 	}
 	
 	public boolean estaMorto() {

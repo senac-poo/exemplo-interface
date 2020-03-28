@@ -1,6 +1,6 @@
-package br.senac.jogo.inimigos.dragoes;
+package br.senac.jogo.combatentes.dragoes;
 
-import br.senac.jogo.inimigos.Dragao;
+import br.senac.jogo.combatentes.Dragao;
 
 public class FuriaDaNoite extends Dragao {	
 	public FuriaDaNoite() {

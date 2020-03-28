@@ -1,41 +1,40 @@
 package br.senac.jogo;
 
-import java.util.Random;
-
-import br.senac.jogo.inimigos.Dragao;
-import br.senac.jogo.inimigos.Orc;
-import br.senac.jogo.inimigos.dragoes.*;
+import br.senac.jogo.combatentes.*;
+import br.senac.jogo.combatentes.dragoes.*;
+import br.senac.jogo.combatentes.humanos.Anjo;
+import br.senac.batalhas.*;
 
 public class Jogo {
 
+	// Entidade => Representa alguma coisa
+	// ** Têm muitos atributos
+	// ** Métodos alteram/verificam os atributos
+	// Serviço => Objeto que têm regras de negócio
+	// ** Poucos atributos
+	// ** Métodos complexos
+	// Adaptador => Objeto que liga com infraestrutura de software
+	
 	public static void main(String[] args) throws InterruptedException {
-		Random rand = new Random();
-		
 		// orc
 		// dragao
-		Orc orc = new Orc();
-		FuriaDaNoite dragao = new FuriaDaNoite();
+		Combatente inimigo1 = new Orc();
+		Combatente inimigo2 = new Anjo();
 		System.out.println("Iniciando jogo com os inimigos:");
-		System.out.println(orc.getNome());
-		System.out.println(dragao.getNome());
+		System.out.println(inimigo1.getNome());
+		System.out.println(inimigo2.getNome());
 		System.out.println("\n");
+
+	
+		Batalha batalha = new Batalha(inimigo1, inimigo2);
+		Combatente vencedor = batalha.lutar();
+	
+		System.out.println("Vecendor: " + vencedor.getNome());
 		
-		dragao.recebeAtaque(100, "fogo");
-		
-		// rodada
-		while(orc.estaVivo() || dragao.estaVivo()) {
-			int ataque = rand.nextInt(10);
-			System.out.println("Será desferido um ataque de " + String.valueOf(ataque) + " pontos...");
-			orc.recebeAtaque(ataque);
-			dragao.recebeAtaque(ataque);
-			
-			System.out.println("Energia dos inimigos:");
-			System.out.println(orc.getNome() + ": " + String.valueOf(orc.getVida()));
-			System.out.println(dragao.getNome() + ": " + String.valueOf(dragao.getVida()));
-			
-			Thread.sleep(2000);
-			System.out.println("\n");
-		}
+		Batalha batalhaViciada = new BatalhaViciada(inimigo1, inimigo2);
+		vencedor = batalhaViciada.lutar();
+	
+		System.out.println("Vecendor: " + vencedor.getNome());		
 		
 		System.out.println("Jogo finalizado!");
 	}
