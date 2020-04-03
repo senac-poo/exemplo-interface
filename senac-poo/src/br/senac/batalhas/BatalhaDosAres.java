@@ -9,24 +9,24 @@ public class BatalhaDosAres {
 	// Serviço => Objeto que têm regras de negócio
 	// ** Poucos atributos =? Suficientes
 	// ** Métodos complexos
-	protected ISerVoador inimigo1;
-	protected ISerVoador inimigo2;
+	protected Combatente inimigo1;
+	protected Combatente inimigo2;
 	private Random rand = new Random();
 	
-	public BatalhaDosAres(Combatente inimigo1, Combatente inimigo2) {
-		this.inimigo1 = (ISerVoador) inimigo1;
-		this.inimigo2 = (ISerVoador) inimigo2;
+	public BatalhaDosAres(ISerVoador inimigo1, ISerVoador inimigo2) {
+		this.inimigo1 = (Combatente) inimigo1;
+		this.inimigo2 = (Combatente) inimigo2;
 	}
 	
 	public Combatente lutar() throws InterruptedException {
 		while(batalhaContinua()) {
 			int ataque = calculcarAtaque();
 			//System.out.println("Será desferido um ataque de " + String.valueOf(ataque) + " pontos em " + inimigo1.getNome());
-			inimigo1.recebeAtaqueAereo(ataque);
+			 ((ISerVoador) inimigo1).recebeAtaqueAereo(ataque);
 			
 			ataque = calculcarAtaque();
 			//System.out.println("Será desferido um ataque de " + String.valueOf(ataque) + " pontos em " + inimigo2.getNome());
-			inimigo2.recebeAtaqueAereo(ataque);
+			((ISerVoador) inimigo2).recebeAtaqueAereo(ataque);
 			
 			//System.out.println("Energia dos inimigos:");
 			//System.out.println(inimigo1.getNome() + ": " + String.valueOf(inimigo1.getVida()));
