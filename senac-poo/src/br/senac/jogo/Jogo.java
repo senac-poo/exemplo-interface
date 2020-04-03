@@ -28,13 +28,16 @@ public class Jogo {
 	
 		Batalha batalha = new Batalha(inimigo1, inimigo2);
 		Combatente vencedor = batalha.lutar();
-	
-		System.out.println("Vecendor: " + vencedor.getNome());
+		System.out.println("Batalha normal => Vecendor: " + vencedor.getNome());
 		
 		Batalha batalhaViciada = new BatalhaViciada(inimigo1, inimigo2);
 		vencedor = batalhaViciada.lutar();
-	
-		System.out.println("Vecendor: " + vencedor.getNome());		
+		System.out.println("Batalha Viciada => Vecendor: " + vencedor.getNome());
+		
+		Combatente inimigo3 = new FuriaDaNoite();
+		Batalha batalhaDosAres = new BatalhaViciada(inimigo3, inimigo2);
+		vencedor = batalhaDosAres.lutar();
+		System.out.println("Batalha dos Ares => Vecendor: " + vencedor.getNome());
 		
 		System.out.println("Jogo finalizado!");
 	}
