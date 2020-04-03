@@ -22,7 +22,6 @@ public class BatalhaDosAres {
 		while(batalhaContinua()) {
 			int ataque = calculcarAtaque();
 			//System.out.println("Será desferido um ataque de " + String.valueOf(ataque) + " pontos em " + inimigo1.getNome());
-			 ((ISerVoador) inimigo1).recebeAtaqueAereo(ataque);
 			
 			ataque = calculcarAtaque();
 			//System.out.println("Será desferido um ataque de " + String.valueOf(ataque) + " pontos em " + inimigo2.getNome());

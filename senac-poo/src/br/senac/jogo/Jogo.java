@@ -22,18 +22,18 @@ public class Jogo {
 		// dragao
 		Combatente inimigo1 = new Orc();
 		Combatente inimigo2 = new Anjo();
-//		System.out.println("Iniciando jogo com os inimigos:");
-//		System.out.println(inimigo1.getNome());
-//		System.out.println(inimigo2.getNome());
-//		System.out.println("\n");
-//	
-//		Batalha batalha = new Batalha(inimigo1, inimigo2);
-//		vencedor = batalha.lutar();
-//		System.out.println("Batalha normal => Vecendor: " + vencedor.getNome());
-//		
-//		Batalha batalhaViciada = new BatalhaViciada(inimigo1, inimigo2);
-//		vencedor = batalhaViciada.lutar();
-//		System.out.println("Batalha Viciada => Vecendor: " + vencedor.getNome());
+		System.out.println("Iniciando jogo com os inimigos:");
+		System.out.println(inimigo1.getNome());
+		System.out.println(inimigo2.getNome());
+		System.out.println("\n");
+	
+		Batalha batalha = new Batalha(inimigo1, inimigo2);
+		vencedor = batalha.lutar();
+		System.out.println("Batalha normal => Vecendor: " + vencedor.getNome());
+		
+		Batalha batalhaViciada = new BatalhaViciada(inimigo1, inimigo2);
+		vencedor = batalhaViciada.lutar();
+		System.out.println("Batalha Viciada => Vecendor: " + vencedor.getNome());
 		
 		ISerVoador inimigo3 = new FuriaDaNoite();
 		BatalhaDosAres batalhaDosAres = new BatalhaDosAres(inimigo3, (ISerVoador) inimigo2);
